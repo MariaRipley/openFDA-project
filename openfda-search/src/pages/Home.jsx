@@ -1,5 +1,4 @@
 import { fetchDrugs } from '../api/openFDA';
-import DrugDetails from '../components/DrugDetails';
 import DrugList from '../components/DrugList';
 import SearchBar from '../components/SearchBar';
 import { useState } from 'react';

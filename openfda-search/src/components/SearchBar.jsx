@@ -9,12 +9,20 @@ function SearchBar({ onSearch }) {
 	};
 
 	return (
-		<>
-			<Box>
-				<TextField label='Search drug' onChange={(e) => setQuery(e.target.value)} />
-				<Button onClick={handleSearch}>Search</Button>
-			</Box>
-		</>
+		<Box
+			display='flex'
+			flexDirection={{ xs: 'column', sm: 'row' }}
+			alignItems='center'
+			justifyContent='center'
+			gap={2}
+			m={4}
+			width='100%'
+		>
+			<TextField label='Search drug' onChange={(e) => setQuery(e.target.value)} />
+			<Button variant='contained' onClick={handleSearch}>
+				Search
+			</Button>
+		</Box>
 	);
 }
 
