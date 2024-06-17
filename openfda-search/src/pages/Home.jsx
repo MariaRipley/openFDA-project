@@ -1,9 +1,13 @@
 import SearchBar from '../components/SearchBar';
 
 function Home() {
+	const handleSearch = (query) => {
+		console.log('Searching for: ', query);
+	};
+
 	return (
 		<>
-			<SearchBar />
+			<SearchBar onSearch={handleSearch} />
 		</>
 	);
 }
