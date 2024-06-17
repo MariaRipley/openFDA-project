@@ -35,15 +35,10 @@ function Home() {
 		setSelectedDrug(drug);
 	};
 
-	const handleClose = () => {
-		setSelectedDrug(null);
-	};
-
 	return (
 		<>
 			<SearchBar onSearch={handleSearch} />
 			<DrugList searchResults={searchResults} onViewDetails={handleViewDetails} loadMoreResults={handleMoreResults} />
-			<DrugDetails drug={selectedDrug} onClose={handleClose} />
 		</>
 	);
 }

@@ -1,4 +1,5 @@
 import { Box, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const DrugList = ({ searchResults, onViewDetails, loadMoreResults }) => {
 	return (
@@ -17,9 +18,9 @@ const DrugList = ({ searchResults, onViewDetails, loadMoreResults }) => {
 							<Typography variant='body2'>
 								{result.openfda.manufacturer_name ? result.openfda.manufacturer_name[0] : 'Unknown'}
 							</Typography>
-							<Button variant='contained' color='primary' onClick={() => onViewDetails(result)}>
-								View Details
-							</Button>
+							<Link to={`/drug/${result.id}`}>
+								<Button>View Details</Button>
+							</Link>
 						</Box>
 					))}
 					<Box mt={2}>
