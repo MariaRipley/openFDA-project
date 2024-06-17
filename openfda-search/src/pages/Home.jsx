@@ -5,10 +5,12 @@ import SearchBar from '../components/SearchBar';
 import { useState } from 'react';
 
 function Home() {
+	const [query, setQuery] = useState('');
 	const [searchResults, setSearchResults] = useState(null);
 	const [selectedDrug, setSelectedDrug] = useState(null);
 
 	const handleSearch = async (query) => {
+		setQuery(query);
 		try {
 			const initialResults = await fetchDrugs(query);
 			setSearchResults(initialResults);
@@ -40,7 +42,7 @@ function Home() {
 	return (
 		<>
 			<SearchBar onSearch={handleSearch} />
-			<DrugList searchResults={searchResults} onViewDetails={handleViewDetails} />
+			<DrugList searchResults={searchResults} onViewDetails={handleViewDetails} loadMoreResults={handleMoreResults} />
 			<DrugDetails drug={selectedDrug} onClose={handleClose} />
 		</>
 	);
