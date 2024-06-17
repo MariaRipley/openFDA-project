@@ -1,6 +1,6 @@
 import { Box, Typography, Button } from '@mui/material';
 
-const DrugList = ({searchResults, onViewDetails}) => {
+const DrugList = ({ searchResults, onViewDetails, loadMoreResults }) => {
 	return (
 		<Box mt={4}>
 			{searchResults && searchResults.length > 0 ? (
@@ -22,6 +22,11 @@ const DrugList = ({searchResults, onViewDetails}) => {
 							</Button>
 						</Box>
 					))}
+					<Box mt={2}>
+						<Button variant='outlined' onClick={loadMoreResults}>
+							Load More Results
+						</Button>
+					</Box>
 				</>
 			) : (
 				<Typography variant='body1'>No results found.</Typography>

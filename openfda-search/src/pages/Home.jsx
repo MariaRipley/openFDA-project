@@ -1,3 +1,4 @@
+import { fetchDrugs } from '../api/openFDA';
 import DrugDetails from '../components/DrugDetails';
 import DrugList from '../components/DrugList';
 import SearchBar from '../components/SearchBar';
@@ -9,14 +10,22 @@ function Home() {
 
 	const handleSearch = async (query) => {
 		try {
-			const response = await fetch(`https://api.fda.gov/drug/label.json?search=${query}`);
-			if (!response.ok) {
-				throw new Error('Response was not ok');
-			}
-			const data = await response.json();
-			setSearchResults(data.results);
+			const initialResults = await fetchDrugs(query);
+			setSearchResults(initialResults);
 		} catch (error) {
 			console.error('Error fetching search results: ', error);
+		}
+	};
+
+	const handleMoreResults = async () => {
+		try {
+			if (!searchResults) return;
+
+			const currentResults = searchResults;
+			const moreResults = await fetchDrugs(query, currentResults.length);
+			setSearchResults([...currentResults, ...moreResults]);
+		} catch (error) {
+			console.error('Error fetching more results: ', error);
 		}
 	};
 

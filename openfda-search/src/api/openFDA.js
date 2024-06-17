@@ -1,9 +1,9 @@
 const API_BASE_URL = 'https://api.fda.gov/drug/label.json';
 
-// Búsqueda general
-export const fetchDrugs = async (query) => {
+// Búsqueda general (paginación)
+export const fetchDrugs = async (query, skip = 0, limit = 10) => {
 	try {
-		const response = await fetch(`${API_BASE_URL}?search=${query}`);
+		const response = await fetch(`${API_BASE_URL}?search=${query}&skip=${skip}&limit=${limit}`);
 		if (!response.ok) {
 			throw new Error('Failed to fetch drugs');
 		}
