@@ -1,10 +1,14 @@
+import { Box, Typography, Button } from '@mui/material';
 
 function DrugList() {
-  return (
-    <div>
-      
-    </div>
-  )
+	return (
+		<>
+			<Box>
+				<Typography>Results: </Typography>
+        
+			</Box>
+		</>
+	);
 }
 
-export default DrugList
+export default DrugList;
