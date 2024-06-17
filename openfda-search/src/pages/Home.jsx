@@ -12,7 +12,7 @@ function Home() {
 				throw new Error('Response was not ok');
 			}
 			const data = await response.json();
-			console.log(data.results);
+			setSearchResults(data.results)
 		} catch (error) {
 			console.error('Error fetching search results: ', error);
 		}
@@ -21,7 +21,7 @@ function Home() {
 	return (
 		<>
 			<SearchBar onSearch={handleSearch} />
-			<DrugList />
+			<DrugList searchResults={searchResults}/>
 		</>
 	);
 }
