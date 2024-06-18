@@ -29,7 +29,7 @@ function SearchBar({ onSearch }) {
 			<Button variant='contained' onClick={handleSearch}>
 				Search
 			</Button>
-			<Button variant='contained' onClick={handleReset}>
+			<Button variant='outlined' onClick={handleReset}>
 				Reset
 			</Button>
 		</Box>
