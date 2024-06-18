@@ -15,7 +15,7 @@ function SearchBar({ onSearch }) {
 			alignItems='center'
 			justifyContent='center'
 			gap={2}
-			m={4}
+			mt={10}
 			width='100%'
 		>
 			<TextField label='Search drug' onChange={(e) => setQuery(e.target.value)} />
