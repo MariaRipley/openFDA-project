@@ -24,7 +24,7 @@ This project is a Web application developed with React, Vite and Material UI, wh
 - Install dependencies:
   npm install
 - Run the application:
-  npm start
+  npm run dev
 
 ## Contributions
 
