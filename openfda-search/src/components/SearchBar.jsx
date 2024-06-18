@@ -1,11 +1,18 @@
 import { Box, TextField, Button } from '@mui/material';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { SearchContext } from '../context/SearchContext';
 
 function SearchBar({ onSearch }) {
 	const [query, setQuery] = useState('');
+	const { setSearchResults } = useContext(SearchContext);
 
 	const handleSearch = () => {
 		onSearch(query);
+	};
+
+	const handleReset = () => {
+		setQuery('');
+		setSearchResults([]);
 	};
 
 	return (
@@ -18,9 +25,12 @@ function SearchBar({ onSearch }) {
 			mt={10}
 			width='100%'
 		>
-			<TextField label='Search drug' onChange={(e) => setQuery(e.target.value)} />
+			<TextField label='Search drug' value={query} onChange={(e) => setQuery(e.target.value)} />
 			<Button variant='contained' onClick={handleSearch}>
 				Search
+			</Button>
+			<Button variant='contained' onClick={handleReset}>
+				Reset
 			</Button>
 		</Box>
 	);
