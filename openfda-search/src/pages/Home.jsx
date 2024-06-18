@@ -1,12 +1,16 @@
 import { fetchDrugs } from '../api/openFDA';
 import DrugList from '../components/DrugList';
 import SearchBar from '../components/SearchBar';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useContext } from 'react';
+import { SearchContext } from '../context/SearchContext';
 
 function Home() {
-	const [query, setQuery] = useState('');
-	const [searchResults, setSearchResults] = useState(null);
-	const [selectedDrug, setSelectedDrug] = useState(null);
+	const { searchResults, setSearchResults, query, setQuery } = useContext(SearchContext);
+
+	// const [query, setQuery] = useState('');
+	// const [searchResults, setSearchResults] = useState(null);
+	// const [selectedDrug, setSelectedDrug] = useState(null);
 
 	const handleSearch = async (query) => {
 		setQuery(query);
@@ -30,14 +34,14 @@ function Home() {
 		}
 	};
 
-	const handleViewDetails = (drug) => {
-		setSelectedDrug(drug);
-	};
+	// const handleViewDetails = (drug) => {
+	// 	setSelectedDrug(drug);
+	// };
 
 	return (
 		<>
 			<SearchBar onSearch={handleSearch} />
-			<DrugList searchResults={searchResults} onViewDetails={handleViewDetails} loadMoreResults={handleMoreResults} />
+			<DrugList searchResults={searchResults} loadMoreResults={handleMoreResults} />
 		</>
 	);
 }
