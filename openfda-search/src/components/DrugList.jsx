@@ -1,7 +1,7 @@
 import { Box, Typography, Button, Card, CardContent, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const DrugList = ({ searchResults, onViewDetails, loadMoreResults }) => {
+const DrugList = ({ searchResults, loadMoreResults }) => {
 	return (
 		<Box mt={4} p={2} display='flex' flexDirection='column'>
 			{searchResults && searchResults.length > 0 ? (
